@@ -15,6 +15,7 @@ class LoginPage(Base):
     user_name = ("id", "user-name")
     password = ("id", "password")
     login_button = ("id", "login-button")
+    page_title = ("xpath", "//span[@class='title']")
 
     # Getters
     def get_user_name(self):
@@ -25,6 +26,9 @@ class LoginPage(Base):
 
     def get_login_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(self.login_button))
+
+    def get_page_title(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(self.page_title)).text
 
     # Actions
     def input_user_name(self, user_name):
@@ -39,9 +43,12 @@ class LoginPage(Base):
         self.get_login_button().click()
         print("Click Login button")
 
+    # Methods
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
+        self.get_current_url()
         self.input_user_name("standard_user")
         self.input_password("secret_sauce")
         self.click_login_button()
+        self.assert_page_title_text(self.get_page_title(), "Products")
