@@ -1,5 +1,4 @@
 import time
-from selenium import webdriver
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.cart_page import CartPage
@@ -8,14 +7,18 @@ from pages.payment_page import PaymentPage
 from pages.thank_you_page import ThankYouPage
 
 
-def test_select_product():
-    driver = webdriver.Chrome()
+def test_select_product_1(set_up, set_group):
+
+    driver = set_up
+
+    print("")
+    print("Start Test 1")
 
     login = LoginPage(driver)
     login.authorization()
 
     mp = MainPage(driver)
-    mp.select_product()
+    mp.select_product_1()
 
     cp = CartPage(driver)
     cp.confirm_product()
@@ -30,3 +33,47 @@ def test_select_product():
     typ.thank_yoy_page()
 
     time.sleep(3)
+
+    print("Finish Test 1")
+
+
+def test_select_product_2(set_up):
+
+    driver = set_up
+
+    print("")
+    print("Start Test 2")
+
+    login = LoginPage(driver)
+    login.authorization()
+
+    mp = MainPage(driver)
+    mp.select_product_2()
+
+    cp = CartPage(driver)
+    cp.confirm_product()
+
+    time.sleep(3)
+
+    print("Finish Test 2")
+
+
+def test_select_product_3(set_up):
+
+    driver = set_up
+
+    print("")
+    print("Start Test 3")
+
+    login = LoginPage(driver)
+    login.authorization()
+
+    mp = MainPage(driver)
+    mp.select_product_3()
+
+    cp = CartPage(driver)
+    cp.confirm_product()
+
+    time.sleep(3)
+
+    print("Finish Test 3")

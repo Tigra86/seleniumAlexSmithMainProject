@@ -10,13 +10,14 @@ class Base:
     def get_current_url(self):
         get_url = self.driver.current_url
         print("")
-        print("Current URL is", get_url)
+        print(f"Current URL is {get_url}")
 
     # Method assert page title text
     @staticmethod
     def assert_page_title_text(actual_page_title_text, expected_page_title_text):
-        assert actual_page_title_text == expected_page_title_text, "Wrong page title text is displaying"
-        print("Correct page title text is displaying:", actual_page_title_text)
+        assert actual_page_title_text == expected_page_title_text, (f"Wrong page title text is displaying: "
+                                                                    f"{actual_page_title_text}")
+        print(f"Correct page title text is displaying")
 
     # Method take screenshot
     def take_screenshot(self):
@@ -28,5 +29,5 @@ class Base:
     # Method assert URL
     def assert_url(self, expected_url):
         actual_url = self.driver.current_url
-        assert actual_url == expected_url, "Wrong page is displaying"
-        print("Correct page is displaying:", expected_url)
+        assert actual_url == expected_url, f"Wrong page is displaying: {actual_url}"
+        print(f"Correct page is displaying")
