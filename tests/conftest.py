@@ -20,6 +20,7 @@ def set_up():
 
 @pytest.fixture(scope="module")
 def set_group():
+    print("")
     print("Enter system")
     yield
     print("Exit system")

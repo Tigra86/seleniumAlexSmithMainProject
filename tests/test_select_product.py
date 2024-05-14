@@ -1,4 +1,5 @@
 import time
+import pytest
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.cart_page import CartPage
@@ -7,6 +8,7 @@ from pages.payment_page import PaymentPage
 from pages.thank_you_page import ThankYouPage
 
 
+# @pytest.mark.run(order=1)
 def test_select_product_1(set_up, set_group):
 
     driver = set_up
@@ -37,6 +39,7 @@ def test_select_product_1(set_up, set_group):
     print("Finish Test 1")
 
 
+# @pytest.mark.run(order=3)
 def test_select_product_2(set_up):
 
     driver = set_up
@@ -58,6 +61,7 @@ def test_select_product_2(set_up):
     print("Finish Test 2")
 
 
+# @pytest.mark.run(order=2)
 def test_select_product_3(set_up):
 
     driver = set_up
